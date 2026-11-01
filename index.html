@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BloomQuiz | Gender and Society Examination</title>
+
 <style>
 *{box-sizing:border-box}
+
 body{
   margin:0;
   min-height:100vh;
@@ -14,7 +16,9 @@ body{
   background:linear-gradient(135deg,#ffe0ef,#f0e2ff,#fff0f6);
   padding:25px 14px 50px;
 }
+
 button,input,textarea{font:inherit}
+
 button{
   border:0;
   border-radius:16px;
@@ -26,15 +30,41 @@ button{
   box-shadow:0 6px 0 #c94b8b,0 9px 15px #d98bb855;
   transition:.15s;
 }
+
 button:hover:not(:disabled){transform:translateY(-2px)}
-button:active:not(:disabled){transform:translateY(3px);box-shadow:0 2px 0 #c94b8b}
-button:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
-.secondary{background:linear-gradient(145deg,#c9a8f5,#9870d8);box-shadow:0 6px 0 #805bb8}
-.danger{background:linear-gradient(145deg,#ff9292,#e65e75);box-shadow:0 6px 0 #b84259}
+button:active:not(:disabled){
+  transform:translateY(3px);
+  box-shadow:0 2px 0 #c94b8b;
+}
+button:disabled{
+  opacity:.4;
+  cursor:not-allowed;
+  box-shadow:none;
+}
+
+.secondary{
+  background:linear-gradient(145deg,#c9a8f5,#9870d8);
+  box-shadow:0 6px 0 #805bb8;
+}
+
+.danger{
+  background:linear-gradient(145deg,#ff9292,#e65e75);
+  box-shadow:0 6px 0 #b84259;
+}
+
 .container{max-width:850px;margin:auto}
+
 header{text-align:center;margin:15px auto 25px}
-header h1{font-size:clamp(2.2rem,6vw,3.5rem);margin:5px;color:#dc5b9d;text-shadow:2px 3px #fff}
+
+header h1{
+  font-size:clamp(2.2rem,6vw,3.5rem);
+  margin:5px;
+  color:#dc5b9d;
+  text-shadow:2px 3px #fff;
+}
+
 header p{margin:5px;color:#9873a4}
+
 .card{
   background:#fffafdf2;
   border:2px solid #fff;
@@ -43,8 +73,15 @@ header p{margin:5px;color:#9873a4}
   box-shadow:0 12px 0 #e7c6df,0 20px 35px #9f6b9b30;
   margin-bottom:22px;
 }
+
 h2{color:#ca5a9b}
-label{display:block;font-weight:bold;margin:15px 0 7px}
+
+label{
+  display:block;
+  font-weight:bold;
+  margin:15px 0 7px;
+}
+
 input,textarea{
   width:100%;
   padding:13px 15px;
@@ -54,9 +91,18 @@ input,textarea{
   color:#573d63;
   outline:none;
 }
+
 input:focus,textarea:focus{border-color:#e78cbd}
+
 .hidden{display:none!important}
-.topline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+.topline{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
 .timer{
   background:#ffe3f1;
   border-radius:30px;
@@ -64,8 +110,22 @@ input:focus,textarea:focus{border-color:#e78cbd}
   font-weight:bold;
   color:#c94c91;
 }
-.progress{height:11px;background:#f3e1ee;border-radius:20px;overflow:hidden;margin:18px 0}
-.progress div{height:100%;width:0;background:linear-gradient(90deg,#ff9ac9,#b99bf4);transition:width .2s}
+
+.progress{
+  height:11px;
+  background:#f3e1ee;
+  border-radius:20px;
+  overflow:hidden;
+  margin:18px 0;
+}
+
+.progress div{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#ff9ac9,#b99bf4);
+  transition:width .2s;
+}
+
 .option{
   display:flex;
   gap:12px;
@@ -77,25 +137,72 @@ input:focus,textarea:focus{border-color:#e78cbd}
   margin:10px 0;
   cursor:pointer;
 }
-.option:has(input:checked){background:#ffeaf4;border-color:#e98cbd}
-.option input{width:auto}
-.actions{display:flex;justify-content:space-between;gap:12px;margin-top:25px}
-.actions button{min-width:120px}
-.small{font-size:.88rem;color:#987b9e}
-table{width:100%;border-collapse:collapse;font-size:.9rem}
-th,td{padding:10px;border-bottom:1px solid #f0dce9;text-align:left}
-.table-wrap{overflow-x:auto}
-#adminFlower{
-  position:fixed;right:12px;bottom:8px;
-  opacity:.18;font-size:15px;padding:5px 8px;
-  color:#a45c91;background:none;box-shadow:none;
+
+.option:has(input:checked){
+  background:#ffeaf4;
+  border-color:#e98cbd;
 }
+
+.option input{width:auto}
+
+.actions{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:25px;
+}
+
+.actions button{min-width:120px}
+
+.small{font-size:.88rem;color:#987b9e}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.9rem;
+}
+
+th,td{
+  padding:10px;
+  border-bottom:1px solid #f0dce9;
+  text-align:left;
+}
+
+.table-wrap{overflow-x:auto}
+
+#adminFlower{
+  position:fixed;
+  right:12px;
+  bottom:8px;
+  opacity:.18;
+  font-size:15px;
+  padding:5px 8px;
+  color:#a45c91;
+  background:none;
+  box-shadow:none;
+}
+
 #adminFlower:hover{opacity:1}
+
 #feedback{margin-top:15px;font-weight:bold}
+
+.key-item{
+  padding:9px 0;
+  border-bottom:1px solid #f0dce9;
+}
+
+@media(max-width:500px){
+  .actions{flex-wrap:wrap}
+  .actions button{flex:1}
+  table{font-size:.8rem}
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
 <header>
   <h1>🌸 BloomQuiz 🌸</h1>
   <p>Gender and Society Examination</p>
@@ -105,28 +212,43 @@ th,td{padding:10px;border-bottom:1px solid #f0dce9;text-align:left}
 <section id="startScreen" class="card">
   <h2>Welcome, Student! 🌷</h2>
   <p>Please enter your information before starting the examination.</p>
+
   <label for="studentName">Full Name</label>
   <input id="studentName" placeholder="Enter your full name">
+
   <label for="studentSection">Section</label>
   <input id="studentSection" placeholder="Enter your section">
-  <p class="small">Each question has a 60-second time limit. The exam advances automatically when time expires.</p>
+
+  <p class="small">
+    Each question has a 60-second time limit.
+    The exam advances automatically when time expires.
+  </p>
+
   <button onclick="startExam()">Start Examination ✨</button>
   <p id="startError" style="color:#d34c79"></p>
 </section>
 
 <section id="quizScreen" class="card hidden">
+
   <div class="topline">
     <strong id="questionCount">Question 1 of 30</strong>
     <span class="timer">⏰ <span id="timer">60</span> seconds</span>
   </div>
-  <div class="progress"><div id="progressBar"></div></div>
+
+  <div class="progress">
+    <div id="progressBar"></div>
+  </div>
+
   <p class="small" id="questionType"></p>
   <h2 id="questionText"></h2>
+
   <div id="answerArea"></div>
+
   <div class="actions">
     <span class="small" id="answeredCount"></span>
     <button id="nextBtn" onclick="nextQuestion()" disabled>Next ➜</button>
   </div>
+
   <p id="feedback"></p>
 </section>
 
@@ -140,276 +262,665 @@ th,td{padding:10px;border-bottom:1px solid #f0dce9;text-align:left}
 
 <section id="adminLogin" class="card hidden">
   <h2>🌷 Admin Login</h2>
+
   <label for="adminPassword">Password</label>
   <input id="adminPassword" type="password" placeholder="Enter admin password">
+
   <div class="actions">
     <button class="secondary" onclick="closeAdmin()">Cancel</button>
     <button onclick="loginAdmin()">Login</button>
   </div>
+
   <p id="loginError" style="color:#d34c79"></p>
 </section>
 
 <section id="adminPanel" class="card hidden">
+
   <div class="topline">
     <h2>🌸 Admin Dashboard</h2>
     <button class="secondary" onclick="logoutAdmin()">Logout</button>
   </div>
+
   <p id="recordCount"></p>
+
   <div class="actions" style="justify-content:flex-start;flex-wrap:wrap">
     <button onclick="exportResults()">Export to Excel (CSV)</button>
     <button class="danger" onclick="deleteAllRecords()">Delete All Records</button>
   </div>
+
   <h3>Student Results</h3>
+
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Name</th><th>Section</th><th>Score</th><th>Date</th><th>Action</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Section</th>
+          <th>Score</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
       <tbody id="resultsBody"></tbody>
     </table>
   </div>
+
   <h3>Answer Key</h3>
   <div id="answerKey"></div>
+
 </section>
 </div>
 
 <button id="adminFlower" onclick="showAdminLogin()" title="Admin">✿</button>
 
 <script>
-// CHANGE THIS PASSWORD BEFORE PUBLISHING.
+
+// ADMIN PASSWORD
 const ADMIN_PASSWORD = "clicklang";
 const TIME_PER_QUESTION = 60;
 
-// Replace these sample questions with your original examination questions.
+// ORIGINAL EXAMINATION QUESTIONS
+
 const questions = [
-  {type:"Multiple Choice",q:"A film presents a woman as a successful engineer, but the story repeatedly focuses on her appearance rather than her technical decisions. Which concept best explains this contradiction?",o:["A. Gender equity","B. Objectification despite professional representation","C. Political accountability","D. Workplace inclusion"],a:"B"},
+
+{type:"Multiple Choice",q:"A film presents a woman as a successful engineer, but the story repeatedly focuses on her appearance rather than her technical decisions. Which concept best explains this contradiction?",o:["A. Gender equity","B. Objectification despite professional representation","C. Political accountability","D. Workplace inclusion"],a:"B"},
+
 {type:"Multiple Choice",q:"A company claims that its promotion process is gender-neutral. However, managers consistently choose men for leadership positions because they believe men are more decisive. What is the most appropriate analysis?",o:["A. The process is fair because the same rules are written for everyone.","B. The company demonstrates equity by following traditional expectations.","C. Unconscious or implicit gender bias may influence decisions despite formal policies.","D. The issue is unrelated to gender because managers make the final decisions."],a:"C"},
+
 {type:"Multiple Choice",q:"A female candidate is frequently questioned by news reporters about her clothing, while male candidates are asked about their policy proposals. What is the most likely consequence?",o:["A. It may reinforce gender stereotypes and reduce attention to her qualifications.","B. It guarantees equal media coverage.","C. It demonstrates that media representation is always objective.","D. It increases accountability by focusing on appearance."],a:"A"},
+
 {type:"Multiple Choice",q:"A woman attends public consultations but is repeatedly interrupted and her suggestions are ignored. Which interpretation is most accurate?",o:["A. Her political participation is complete because she is physically present.","B. Participation is meaningful only when a person holds elected office.","C. Her attendance proves that all participants have equal influence.","D. Formal participation does not necessarily guarantee meaningful voice or influence."],a:"D"},
+
 {type:"Multiple Choice",q:"A news organization begins featuring women as experts in science, politics, and technology. Which outcome would best indicate that this change is meaningful?",o:["A. Women appear more frequently, regardless of how they are portrayed.","B. Women are shown only in traditionally feminine occupations.","C. Women are represented with expertise, agency, and diverse roles rather than only through stereotypes.","D. The organization removes all male speakers from its programs."],a:"C"},
+
 {type:"Multiple Choice",q:"Which situation best distinguishes gender equity from gender equality?",o:["A. Everyone receives the same resource regardless of their circumstances.","B. People receive appropriate support to address different barriers while pursuing fair opportunities.","C. One gender receives permanent priority in all decisions.","D. Different standards are applied without considering their relevance."],a:"B"},
+
 {type:"Multiple Choice",q:"A company publishes an anti-harassment policy, but employees fear retaliation if they report incidents. What is the central weakness?",o:["A. The company has too many workplace rules.","B. The employees are responsible for solving the problem independently.","C. Written policies automatically ensure a safe workplace.","D. The policy is not supported by effective reporting protections and accountability."],a:"D"},
+
 {type:"Multiple Choice",q:"Which example best demonstrates the relationship between media representation and public perceptions of leadership?",o:["A. Repeatedly portraying men as decision-makers may reinforce the belief that leadership is primarily a male role.","B. Showing a variety of occupations always eliminates discrimination.","C. Media content has no possible influence on social expectations.","D. Leadership stereotypes exist only in workplaces and never in media."],a:"A"},
+
 {type:"Multiple Choice",q:"A local government invites women to attend meetings but does not provide accessible information about the agenda or allow adequate time for public comments. Which concern is most relevant?",o:["A. Women should participate only through elections.","B. Attendance is the only measure of political inclusion.","C. Access to participation does not necessarily provide an equal opportunity to influence decisions.","D. Public consultations should be limited to elected officials."],a:"C"},
+
 {type:"Multiple Choice",q:"Which approach would best help an employer determine whether its promotion process is fair?",o:["A. Ask managers whether they believe they are unbiased.","B. Examine promotion patterns and apply consistent, job-related criteria to candidates.","C. Promote employees based mainly on personal familiarity.","D. Avoid reviewing workplace decisions to prevent disagreements."],a:"B"},
+
 {type:"Multiple Choice",q:"A female politician is described in the news mainly as a wife and mother, while her legislative proposals receive little attention. Which two concepts are most directly connected to this example?",o:["A. Equity and workplace safety","B. Accountability and voting","C. Political participation and resource allocation","D. Gender stereotyping and unequal media framing"],a:"D"},
+
 {type:"Multiple Choice",q:"Why is it insufficient to measure women's political participation only by counting how many women attend public meetings?",o:["A. Attendance is illegal without an elected position.","B. Political participation can occur only through voting.","C. The count does not show whether women can speak, be heard, or influence decisions.","D. Public meetings have no relationship to democracy."],a:"C"},
+
 {type:"Multiple Choice",q:"A manager assigns administrative note-taking to women employees and technical tasks to men, regardless of their qualifications. What should be addressed first?",o:["A. Gender-based assumptions that influence task assignments","B. The number of employees attending meetings","C. The employees' personal hobbies","D. The company's advertising strategy"],a:"A"},
+
 {type:"Multiple Choice",q:"Which example most clearly demonstrates accountability in political participation?",o:["A. A voter chooses a candidate without reviewing any information.","B. Community members monitor public commitments and ask officials to explain their progress.","C. A candidate avoids discussing public concerns.","D. A news organization focuses only on candidates' personal lives."],a:"B"},
+
 {type:"Multiple Choice",q:"Which statement best connects the three topics in this quiz?",o:["A. Gender inequality occurs only when laws explicitly discriminate.","B. Media, workplaces, and political institutions operate independently of social expectations.","C. Fairness is achieved simply by increasing the number of people shown in media.","D. Stereotypes and unequal opportunities can affect representation, workplace decisions, and participation in public life."],a:"D"},
+
 {type:"Identification",q:"The ability of a person to make choices, express decisions, and act independently rather than being treated as passive.",a:["Agency"]},
+
 {type:"Identification",q:"A media practice in which a person's appearance or body is emphasized while their abilities, opinions, or individuality are minimized.",a:["Objectification"]},
+
 {type:"Identification",q:"A repeated, generalized belief about the characteristics or roles expected of people based on gender.",a:["Gender stereotype","Gender stereotyping"]},
+
 {type:"Identification",q:"The unequal presentation or treatment of people in media that can shape whose voices, experiences, or achievements receive attention.",a:["Unequal media representation","Media bias"]},
+
 {type:"Identification",q:"The fair provision of support that takes different needs and barriers into account to help people access opportunities.",a:["Equity"]},
+
 {type:"Identification",q:"Unfair treatment in hiring, work assignments, promotion, or other employment decisions because of gender.",a:["Gender discrimination"]},
+
 {type:"Identification",q:"Unwelcome conduct that humiliates, intimidates, or creates an unsafe working environment.",a:["Workplace harassment"]},
+
 {type:"Identification",q:"A workplace principle requiring employment decisions to use relevant, consistent, and fair standards rather than gender-based assumptions.",a:["Fair and objective evaluation","Objective evaluation"]},
+
 {type:"Identification",q:"Participation in activities that influence public decisions, including voting, community consultations, advocacy, and contacting public officials.",a:["Political participation"]},
+
 {type:"Identification",q:"The democratic process of selecting leaders by casting a ballot in an election.",a:["Voting"]},
+
 {type:"Identification",q:"The process by which public officials are expected to explain their actions, respond to questions, and answer for their responsibilities.",a:["Accountability"]},
+
 {type:"Identification",q:"A barrier to women's political participation arising from the belief that leadership or politics is primarily appropriate for men.",a:["Gender stereotype","Gender-based barrier","Gender-based stereotype"]},
+
 {type:"Identification",q:"Organized action intended to support a cause, raise awareness, or influence decisions about a social issue.",a:["Advocacy"]},
+
 {type:"Identification",q:"The capacity to participate in public life in a way that includes having a voice and the opportunity to affect decisions, not merely being present.",a:["Meaningful participation"]},
+
 {type:"Identification",q:"A systematic assumption or preference that can influence decisions without a person fully recognizing it, such as favoring male applicants for leadership roles.",a:["Implicit bias","Unconscious bias"]}
+
 ];
+
+// EXAM VARIABLES
 
 let current = 0;
 let seconds = TIME_PER_QUESTION;
 let timerInterval = null;
 let answers = [];
 let student = {};
-let records = JSON.parse(localStorage.getItem("bloomQuizRecords") || "[]");
+
+let records = JSON.parse(
+  localStorage.getItem("bloomQuizRecords") || "[]"
+);
 
 const $ = id => document.getElementById(id);
 
+// SHOW SCREENS
+
 function show(id){
-  ["startScreen","quizScreen","resultScreen","adminLogin","adminPanel"].forEach(x=>$(x).classList.add("hidden"));
+  [
+    "startScreen",
+    "quizScreen",
+    "resultScreen",
+    "adminLogin",
+    "adminPanel"
+  ].forEach(x => $(x).classList.add("hidden"));
+
   $(id).classList.remove("hidden");
 }
 
+// START EXAM
+
 function startExam(){
-  const name=$("studentName").value.trim();
-  const section=$("studentSection").value.trim();
-  if(!name||!section){
-    $("startError").textContent="Please enter your full name and section.";
+
+  const name = $("studentName").value.trim();
+  const section = $("studentSection").value.trim();
+
+  if(!name || !section){
+    $("startError").textContent =
+      "Please enter your full name and section.";
     return;
   }
-  student={name,section};
-  answers=Array(questions.length).fill("");
-  current=0;
+
+  student = {name,section};
+  answers = Array(questions.length).fill("");
+  current = 0;
+
+  $("startError").textContent = "";
+
   show("quizScreen");
   renderQuestion();
 }
 
+// DISPLAY QUESTION
+
 function renderQuestion(){
+
   clearInterval(timerInterval);
-  seconds=TIME_PER_QUESTION;
-  const q=questions[current];
-  $("questionCount").textContent=`Question ${current+1} of ${questions.length}`;
-  $("questionType").textContent=q.type;
-  $("questionText").textContent=q.q;
-  $("timer").textContent=seconds;
-  $("progressBar").style.width=`${(current/questions.length)*100}%`;
-  $("answeredCount").textContent=`${answers.filter(a=>String(a).trim()).length} answered`;
-  $("feedback").textContent="";
-  $("nextBtn").textContent=current===questions.length-1?"Submit Examination ✓":"Next ➜";
 
-  const area=$("answerArea");
-  area.innerHTML="";
+  seconds = TIME_PER_QUESTION;
 
-  if(q.type==="Multiple Choice"){
-    q.choices.forEach(choice=>{
-      const label=document.createElement("label");
-      label.className="option";
-      const radio=document.createElement("input");
-      radio.type="radio";
-      radio.name="answer";
-      radio.value=choice;
-      radio.checked=answers[current]===choice;
+  const q = questions[current];
+
+  $("questionCount").textContent =
+    `Question ${current+1} of ${questions.length}`;
+
+  $("questionType").textContent = q.type;
+  $("questionText").textContent = q.q;
+  $("timer").textContent = seconds;
+
+  $("progressBar").style.width =
+    `${(current/questions.length)*100}%`;
+
+  $("answeredCount").textContent =
+    `${answers.filter(a=>String(a).trim()).length} answered`;
+
+  $("feedback").textContent = "";
+
+  $("nextBtn").textContent =
+    current === questions.length-1
+      ? "Submit Examination ✓"
+      : "Next ➜";
+
+  const area = $("answerArea");
+  area.innerHTML = "";
+
+  // MULTIPLE CHOICE
+
+  if(q.type === "Multiple Choice"){
+
+    q.o.forEach((choice,index)=>{
+
+      const label = document.createElement("label");
+      label.className = "option";
+
+      const radio = document.createElement("input");
+
+      radio.type = "radio";
+      radio.name = "answer";
+      radio.value = String.fromCharCode(65+index);
+
+      radio.checked = answers[current] === radio.value;
+
       radio.addEventListener("change",()=>{
-        answers[current]=choice;
+
+        answers[current] = radio.value;
+
         updateNextButtonState();
         updateAnsweredCount();
+
       });
-      label.append(radio,document.createTextNode(choice));
+
+      label.append(
+        radio,
+        document.createTextNode(choice)
+      );
+
       area.appendChild(label);
+
     });
+
   }else{
-    const input=document.createElement("textarea");
-    input.rows=3;
-    input.placeholder="Type your answer here...";
-    input.value=answers[current];
+
+    // IDENTIFICATION
+
+    const input = document.createElement("textarea");
+
+    input.rows = 3;
+    input.placeholder = "Type your answer here...";
+    input.value = answers[current];
+
     input.addEventListener("input",()=>{
-      answers[current]=input.value;
+
+      answers[current] = input.value;
+
       updateNextButtonState();
       updateAnsweredCount();
+
     });
+
     area.appendChild(input);
+
   }
+
   updateNextButtonState();
-  timerInterval=setInterval(()=>{
+
+  // TIMER
+
+  timerInterval = setInterval(()=>{
+
     seconds--;
-    $("timer").textContent=seconds;
-    if(seconds<=0){
+
+    $("timer").textContent = seconds;
+
+    if(seconds <= 0){
+
       clearInterval(timerInterval);
-      if(current===questions.length-1) submitExam();
-      else{
+
+      if(current === questions.length-1){
+
+        submitExam();
+
+      }else{
+
         current++;
         renderQuestion();
+
       }
+
     }
+
   },1000);
+
 }
+
+// NEXT BUTTON ENABLE/DISABLE
 
 function updateNextButtonState(){
-  $("nextBtn").disabled=!String(answers[current]||"").trim();
-}
-function updateAnsweredCount(){
-  $("answeredCount").textContent=`${answers.filter(a=>String(a).trim()).length} answered`;
-}
-function nextQuestion(){
-  if(!String(answers[current]||"").trim())return;
-  if(!confirm(current===questions.length-1?"Submit your examination?":"Proceed to the next question?"))return;
-  clearInterval(timerInterval);
-  if(current===questions.length-1)submitExam();
-  else{current++;renderQuestion();}
-}
-function normalize(s){
-  return String(s||"").toLowerCase().trim().replace(/[^\w\s]/g,"").replace(/\s+/g," ");
-}
-function submitExam(){
-  clearInterval(timerInterval);
-  const details=questions.map((q,i)=>{
-    const correct=normalize(answers[i])===normalize(q.a);
-    return {question:q.q,studentAnswer:answers[i]||"",correctAnswer:q.a,correct};
-  });
-  const score=details.filter(x=>x.correct).length;
-  const record={
-    id:Date.now()+"-"+Math.random().toString(16).slice(2),
-    name:student.name,section:student.section,score,
-    total:questions.length,date:new Date().toLocaleString(),details
-  };
-  records.push(record);
-  localStorage.setItem("bloomQuizRecords",JSON.stringify(records));
-  $("resultName").textContent=`Student: ${student.name} | Section: ${student.section}`;
-  $("finalScore").textContent=`${score} / ${questions.length}`;
-  $("resultMessage").textContent=score>=24?"Excellent work! Keep blooming! 🌸":"Thank you for taking the examination!";
-  show("resultScreen");
+
+  const hasAnswer =
+    String(answers[current] || "").trim().length > 0;
+
+  $("nextBtn").disabled = !hasAnswer;
+
 }
 
-function showAdminLogin(){show("adminLogin");}
-function closeAdmin(){show("startScreen");}
-function loginAdmin(){
-  if($("adminPassword").value!==ADMIN_PASSWORD){
-    $("loginError").textContent="Incorrect password.";
+function updateAnsweredCount(){
+
+  $("answeredCount").textContent =
+    `${answers.filter(a=>String(a).trim()).length} answered`;
+
+}
+
+// NEXT QUESTION
+
+function nextQuestion(){
+
+  if(!String(answers[current] || "").trim()){
     return;
   }
-  $("adminPassword").value="";
+
+  const message =
+    current === questions.length-1
+      ? "Submit your examination?"
+      : "Proceed to the next question?";
+
+  if(!confirm(message)){
+    return;
+  }
+
+  clearInterval(timerInterval);
+
+  if(current === questions.length-1){
+
+    submitExam();
+
+  }else{
+
+    current++;
+    renderQuestion();
+
+  }
+
+}
+
+// ANSWER CHECKING
+
+function normalize(s){
+
+  return String(s || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s]/g,"")
+    .replace(/\s+/g," ");
+
+}
+
+function checkAnswer(question,studentAnswer){
+
+  if(question.type === "Multiple Choice"){
+
+    return normalize(studentAnswer) === normalize(question.a);
+
+  }
+
+  const acceptedAnswers = Array.isArray(question.a)
+    ? question.a
+    : [question.a];
+
+  return acceptedAnswers.some(answer =>
+    normalize(studentAnswer) === normalize(answer)
+  );
+
+}
+
+// SUBMIT EXAM
+
+function submitExam(){
+
+  clearInterval(timerInterval);
+
+  const details = questions.map((q,i)=>{
+
+    const correct = checkAnswer(q,answers[i]);
+
+    return {
+      question:q.q,
+      studentAnswer:answers[i] || "",
+      correctAnswer:q.a,
+      correct:correct
+    };
+
+  });
+
+  const score = details.filter(x=>x.correct).length;
+
+  const record = {
+
+    id:Date.now()+"-"+Math.random().toString(16).slice(2),
+
+    name:student.name,
+    section:student.section,
+
+    score:score,
+    total:questions.length,
+
+    date:new Date().toLocaleString(),
+
+    details:details
+
+  };
+
+  records.push(record);
+
+  localStorage.setItem(
+    "bloomQuizRecords",
+    JSON.stringify(records)
+  );
+
+  $("resultName").textContent =
+    `Student: ${student.name} | Section: ${student.section}`;
+
+  $("finalScore").textContent =
+    `${score} / ${questions.length}`;
+
+  $("resultMessage").textContent =
+    score >= 24
+      ? "Excellent work! Keep blooming! 🌸"
+      : "Thank you for taking the examination!";
+
+  show("resultScreen");
+
+}
+
+// ADMIN LOGIN
+
+function showAdminLogin(){
+  show("adminLogin");
+}
+
+function closeAdmin(){
+  show("startScreen");
+}
+
+function loginAdmin(){
+
+  if($("adminPassword").value !== ADMIN_PASSWORD){
+
+    $("loginError").textContent = "Incorrect password.";
+    return;
+
+  }
+
+  $("adminPassword").value = "";
+  $("loginError").textContent = "";
+
   renderAdmin();
   show("adminPanel");
+
 }
-function logoutAdmin(){show("startScreen");}
+
+function logoutAdmin(){
+  show("startScreen");
+}
+
+// ADMIN DASHBOARD
+
 function renderAdmin(){
-  records=JSON.parse(localStorage.getItem("bloomQuizRecords")||"[]");
-  $("recordCount").textContent=`Total student records: ${records.length}`;
-  const body=$("resultsBody");
-  body.innerHTML="";
+
+  records = JSON.parse(
+    localStorage.getItem("bloomQuizRecords") || "[]"
+  );
+
+  $("recordCount").textContent =
+    `Total student records: ${records.length}`;
+
+  const body = $("resultsBody");
+
+  body.innerHTML = "";
+
   records.forEach(record=>{
-    const tr=document.createElement("tr");
-    [record.name,record.section,`${record.score}/${record.total}`,record.date].forEach(value=>{
-      const td=document.createElement("td");
-      td.textContent=value;
+
+    const tr = document.createElement("tr");
+
+    [
+      record.name,
+      record.section,
+      `${record.score}/${record.total}`,
+      record.date
+    ].forEach(value=>{
+
+      const td = document.createElement("td");
+
+      td.textContent = value;
+
       tr.appendChild(td);
+
     });
-    const action=document.createElement("td");
-    const btn=document.createElement("button");
-    btn.className="danger";
-    btn.textContent="Delete";
-    btn.onclick=()=>deleteRecord(record.id);
+
+    const action = document.createElement("td");
+
+    const btn = document.createElement("button");
+
+    btn.className = "danger";
+    btn.textContent = "Delete";
+
+    btn.onclick = ()=>deleteRecord(record.id);
+
     action.appendChild(btn);
     tr.appendChild(action);
+
     body.appendChild(tr);
+
   });
-  $("answerKey").innerHTML="";
-  questions.forEach((q,i)=>
-    {const div=document.createElement("div");
-    div.className="key-item";
-    const strong=document.createElement("strong");
-    strong.textContent=`${i+1}. `;
-    div.append(strong,document.createTextNode(q.o?q.a:q.a.join(" / ")));
-    $("answerKey").append(div);});
+
+  // ANSWER KEY
+
+  $("answerKey").innerHTML = "";
+
+  questions.forEach((q,i)=>{
+
+    const div = document.createElement("div");
+
+    div.className = "key-item";
+
+    const strong = document.createElement("strong");
+
+    strong.textContent = `${i+1}. `;
+
+    let answerText = "";
+
+    if(q.type === "Multiple Choice"){
+
+      const answerIndex = q.a.charCodeAt(0)-65;
+
+      answerText = q.o[answerIndex] || q.a;
+
+    }else{
+
+      answerText = q.a.join(" / ");
+
+    }
+
+    div.append(
+      strong,
+      document.createTextNode(answerText)
+    );
+
+    $("answerKey").appendChild(div);
+
   });
+
 }
+
+// DELETE ONE RECORD
+
 function deleteRecord(id){
-  if(!confirm("Delete this student's record?"))return;
-  records=records.filter(r=>r.id!==id);
-  localStorage.setItem("bloomQuizRecords",JSON.stringify(records));
+
+  if(!confirm("Delete this student's record?")){
+    return;
+  }
+
+  records = records.filter(r=>r.id !== id);
+
+  localStorage.setItem(
+    "bloomQuizRecords",
+    JSON.stringify(records)
+  );
+
   renderAdmin();
+
 }
+
+// DELETE ALL RECORDS
+
 function deleteAllRecords(){
-  if(!confirm("Delete ALL student records? This cannot be undone."))return;
+
+  if(!confirm("Delete ALL student records? This cannot be undone.")){
+    return;
+  }
+
   if(!confirm("Are you absolutely sure?")){
     return;
   }
-  records=[];
-  localStorage.setItem("bloomQuizRecords","[]");
+
+  records = [];
+
+  localStorage.setItem(
+    "bloomQuizRecords",
+    "[]"
+  );
+
   renderAdmin();
+
 }
+
+// EXPORT RESULTS TO EXCEL-COMPATIBLE CSV
+
 function exportResults(){
-  if(!records.length){alert("There are no records to export.");return;}
-  const headers=["Name","Section","Score","Total","Date",...questions.map((q,i)=>`Q${i+1} Answer`)];
-  const rows=records.map(r=>[
-    r.name,r.section,r.score,r.total,r.date,
-    ...questions.map((q,i)=>r.details[i]?.studentAnswer||"")
+
+  if(!records.length){
+
+    alert("There are no records to export.");
+    return;
+
+  }
+
+  const headers = [
+    "Name",
+    "Section",
+    "Score",
+    "Total",
+    "Date",
+    ...questions.map((q,i)=>`Q${i+1} Answer`)
+  ];
+
+  const rows = records.map(r=>[
+
+    r.name,
+    r.section,
+    r.score,
+    r.total,
+    r.date,
+
+    ...questions.map((q,i)=>
+      r.details[i]?.studentAnswer || ""
+    )
+
   ]);
-  const csv=[headers,...rows].map(row=>row.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\r\n");
-  const blob=new Blob(["\uFEFF"+csv],{type:"text/csv;charset=utf-8;"});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement("a");
-  a.href=url;
-  a.download="BloomQuiz_Results.csv";
+
+  const csv = [headers,...rows]
+    .map(row=>
+      row.map(v=>
+        `"${String(v ?? "").replace(/"/g,'""')}"`
+      ).join(",")
+    )
+    .join("\r\n");
+
+  const blob = new Blob(
+    ["\uFEFF"+csv],
+    {type:"text/csv;charset=utf-8;"}
+  );
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+
+  a.href = url;
+  a.download = "BloomQuiz_Results.csv";
+
+  document.body.appendChild(a);
   a.click();
+  a.remove();
+
   URL.revokeObjectURL(url);
+
 }
+
 </script>
 </body>
 </html>
